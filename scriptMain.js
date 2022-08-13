@@ -15,8 +15,7 @@ function playerSelection() {
   let playerSelection = prompt('Type your selection: rock, paper, scissors');
   playerSelection = playerSelection.toLowerCase()
   if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') {
-    console.log('Wrong Imput');
-    return
+    return 0
   };
   return playerSelection
 };
