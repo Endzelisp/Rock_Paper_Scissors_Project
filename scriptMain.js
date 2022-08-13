@@ -25,7 +25,7 @@ function playRound(computer, player) {
   let computerChoice = computer();
   let playerSelection = player();
 
-  /* In case the player input a wrong answer lose this round*/
+  /* In case the player inputs a wrong answer lose that round*/
   if (playerSelection === 0) {
     return 'What\'s that? you lose a round'
   }
@@ -55,17 +55,17 @@ function playRound(computer, player) {
 
 function game() {
   let finalResult = 0;
-  let roundresult;
+  let roundResult;
   let rounds = 5;
 
   for (let i = 0; i < rounds; i++) {
-    roundresult = playRound(getComputerChoice, playerSelection);
-    if (roundresult.slice(0, 7) === 'You Won') {
-      console.log(roundresult)
+    roundResult = playRound(getComputerChoice, playerSelection);
+    if (roundResult.slice(0, 7) === 'You Won') {
+      console.log(roundResult)
       ++finalResult
-    } else if (roundresult.slice(-3) === 'tie') {
+    } else if (roundResult.slice(-3) === 'tie') {
       ++rounds;
-      console.log(`You have another chance ${roundresult}`)
+      console.log(`You have another chance ${roundResult}`)
     } else {
       console.log(roundresult)
     }
