@@ -11,10 +11,11 @@ function getComputerChoice() {
   };
 }
 
+const GAME_OPTIONS = 'rock paper scissors'
+
 function playerSelection() {
-  let playerSelection = prompt(`Type your selection: rock, paper, scissors`);
-  playerSelection = playerSelection.toLowerCase()
-  if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') {
+  let playerSelection = prompt(`Type your selection: rock, paper, scissors`).toLowerCase();
+  if (!GAME_OPTIONS.includes(playerSelection)) {
     return 0
   };
   return playerSelection
