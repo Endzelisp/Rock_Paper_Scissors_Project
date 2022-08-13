@@ -24,6 +24,11 @@ function playRound(computer, player) {
   let computerChoice = computer();
   let playerSelection = player()
 
+  /* In case the player input a wrong answer lose this round*/
+  if (playerSelection === 0) {
+    return 'What\'s that? you lose a round'
+  }
+
   if (computerChoice === 'rock' && playerSelection === 'paper') {
     return 'You Won! Paper beats Rock'
   } else if (computerChoice === 'paper' && playerSelection === 'rock') {
@@ -50,13 +55,19 @@ function playRound(computer, player) {
 function game() {
   let finalResult = 0;
   let roundresult;
+  let rounds = 5;
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < rounds; i++) {
     roundresult = playRound(getComputerChoice, playerSelection);
     if (roundresult.slice(0, 8) === 'You Won') {
+      console.log(roundresult)
       ++finalResult
+    } else if (roundresult.slice(-3) === 'tie') {
+      ++rounds;
+      console.log(`You have another chance ${roundresult}`)
+    } else {
+      console.log(roundresult)
     }
-    console.log(roundresult)
   }
 
   if (finalResult >= 3) {
