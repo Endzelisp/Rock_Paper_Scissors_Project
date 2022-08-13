@@ -12,7 +12,7 @@ function getComputerChoice() {
 }
 
 function playerSelection() {
-  let playerSelection = prompt('Type your selection: rock, paper, scissors');
+  let playerSelection = prompt(`Type your selection: rock, paper, scissors`);
   playerSelection = playerSelection.toLowerCase()
   if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') {
     return 0
@@ -22,7 +22,7 @@ function playerSelection() {
 
 function playRound(computer, player) {
   let computerChoice = computer();
-  let playerSelection = player()
+  let playerSelection = player();
 
   /* In case the player input a wrong answer lose this round*/
   if (playerSelection === 0) {
@@ -55,7 +55,6 @@ function playRound(computer, player) {
 function game() {
   let finalResult = 0;
   let roundresult;
-  let rounds = 5;
 
   for (let i = 0; i < rounds; i++) {
     roundresult = playRound(getComputerChoice, playerSelection);
@@ -76,5 +75,7 @@ function game() {
     console.log('This time the machine beats you :(')
   }
 }
+
+  let rounds = 5;
 
 game()
