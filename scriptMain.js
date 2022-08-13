@@ -48,4 +48,23 @@ function playRound(computer, player) {
   }
 }
 
-console.log(playRound(getComputerChoice, playerSelection))
+function game() {
+  let finalResult = 0;
+  let roundresult;
+
+  for (let i = 0; i < 5; i++) {
+    roundresult = playRound(getComputerChoice, playerSelection);
+    if (roundresult.slice(0, 8) === 'You Won') {
+      ++finalResult
+    }
+    console.log(roundresult)
+  }
+
+  if (finalResult >= 3) {
+    console.log('You\'re a fucking WINNER.!!')
+  } else {
+    console.log('This time the machine beats you :(')
+  }
+}
+
+game()
