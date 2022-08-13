@@ -21,6 +21,31 @@ function playerSelection() {
   return playerSelection
 };
 
-console.log(getComputerChoice())
+function playRound(computer, player) {
+  let computerChoice = computer();
+  let playerSelection = player()
 
-console.log(playerSelection())
+  if (computerChoice === 'rock' && playerSelection === 'paper') {
+    return 'You Won! Paper beats Rock'
+  } else if (computerChoice === 'paper' && playerSelection === 'rock') {
+    return 'You Lose! Paper beats Rock'
+  }
+
+  else if (computerChoice === 'scissors' && playerSelection === 'rock') {
+    return 'You Won! Rock beats Scissors'
+  } else if (computerChoice === 'rock' && playerSelection === 'scissors') {
+    return 'You Lose! Rock beats Scissors'
+  }
+
+  else if (computerChoice === 'paper' && playerSelection === 'scissors') {
+    return 'You Won! Scissors beats Paper'
+  } else if (computerChoice === 'scissors' && playerSelection === 'paper') {
+    return 'You Lose! Scissors beats Paper'
+  }
+
+  else if (computerChoice === playerSelection) {
+    return 'It\'s a tie'
+  }
+}
+
+console.log(playRound(getComputerChoice, playerSelection))
