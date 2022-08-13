@@ -54,7 +54,7 @@ function playRound(computer, player) {
 }
 
 function game() {
-  let finalResult = 0;
+  let userPoints = 0;
   let roundResult;
   let rounds = 5;
 
@@ -62,17 +62,17 @@ function game() {
     roundResult = playRound(getComputerChoice, playerSelection);
     if (roundResult.slice(0, 7) === 'You Won') {
       console.log(roundResult)
-      ++finalResult
+      ++userPoints
     } else if (roundResult.slice(-3) === 'tie') {
       ++rounds;
       console.log(`You have another chance ${roundResult}`)
     } else {
-      console.log(roundresult)
+      console.log(roundResult)
     }
   }
 
-  console.log('The final result is:' + finalResult)
-  if (finalResult >= 3) {
+  console.log('The final result is:' + userPoints)
+  if (userPoints >= 3) {
     console.log('You\'re a WINNER.!!')
   } else {
     console.log('This time the machine beats you :(')
