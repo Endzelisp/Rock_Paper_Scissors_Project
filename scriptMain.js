@@ -55,10 +55,11 @@ function playRound(computer, player) {
 function game() {
   let finalResult = 0;
   let roundresult;
+  let rounds = 5;
 
   for (let i = 0; i < rounds; i++) {
     roundresult = playRound(getComputerChoice, playerSelection);
-    if (roundresult.slice(0, 8) === 'You Won') {
+    if (roundresult.slice(0, 7) === 'You Won') {
       console.log(roundresult)
       ++finalResult
     } else if (roundresult.slice(-3) === 'tie') {
@@ -69,13 +70,12 @@ function game() {
     }
   }
 
+  console.log('The final result is:' + finalResult)
   if (finalResult >= 3) {
-    console.log('You\'re a fucking WINNER.!!')
+    console.log('You\'re a WINNER.!!')
   } else {
     console.log('This time the machine beats you :(')
   }
 }
-
-  let rounds = 5;
 
 game()
