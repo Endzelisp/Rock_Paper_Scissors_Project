@@ -14,7 +14,7 @@ function getComputerChoice() {
 const GAME_OPTIONS = 'rock paper scissors'
 
 function playerSelection(round) {
-  let playerSelection = prompt(round + `left. Type your selection: rock, paper, scissors`).toLowerCase();
+  let playerSelection = prompt(`${round} turn left. Type your selection: rock, paper, scissors`).toLowerCase();
   if (!GAME_OPTIONS.includes(playerSelection)) {
     return 0
   };
@@ -74,12 +74,10 @@ function game() {
     }
   }
 
-  console.log('The final result is:' + userPoints)
-  if (userPoints >= 3) {
-    console.log('You\'re a WINNER.!!')
-  } else {
-    console.log('This time the machine beats you :(')
-  }
+  (userPoints >= 3) ?
+                  console.log(`You're a WINNER.!! you won ${userPoints} of ${i} rounds`)
+                : console.log('This time the machine beats you :(');
+  
 }
 
 game()
