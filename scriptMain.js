@@ -13,11 +13,14 @@ function getComputerChoice() {
 
 const GAME_OPTIONS = 'rock paper scissors'
 
+const answerValidator = (valueToCheck, validValuesArray) => {
+  return validValuesArray.includes(valueToCheck)};
+
 function playerSelection(round) {
   let playerSelection = prompt(`${round} turn left. Type your selection: rock, paper, scissors`).toLowerCase();
-  if (!GAME_OPTIONS.includes(playerSelection)) {
-    return 0
-  };
+  while (!answerValidator(playerSelection, GAME_OPTIONS)) {
+    playerSelection = prompt(`Wrong typing your options are: rock, paper, scissors`).toLowerCase();
+}
   return playerSelection
 };
 

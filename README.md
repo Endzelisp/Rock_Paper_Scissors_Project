@@ -17,7 +17,11 @@ This first practice is intended to put into practice and reinforce all knowledge
     - function expressions
     - anonymous functions
     - arrow functions    
- * For loops
+ * Loops
+    - For
+    - While
+    - Do While
+ * 
  * Developing solving problem skills
  * JavaScript error detection and debugging
  * DevTools debugging
