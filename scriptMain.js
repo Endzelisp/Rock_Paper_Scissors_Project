@@ -72,7 +72,7 @@ function game() {
   }
 
   (userPoints >= 3) ?
-                  console.log(`You're a WINNER.!! you won ${userPoints} of ${i} rounds`)
+                  console.log(`You're a WINNER.!! you won ${userPoints}`)
                 : console.log('This time machine beats you :(');
   
 }
