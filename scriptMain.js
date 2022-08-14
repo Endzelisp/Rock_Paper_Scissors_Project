@@ -13,17 +13,15 @@ function getComputerChoice() {
 
 const GAME_OPTIONS = 'rock paper scissors'
 
-function playerSelection() {
-  let playerSelection = prompt(`Type your selection: rock, paper, scissors`).toLowerCase();
+function playerSelection(round) {
+  let playerSelection = prompt(round + `left. Type your selection: rock, paper, scissors`).toLowerCase();
   if (!GAME_OPTIONS.includes(playerSelection)) {
     return 0
   };
   return playerSelection
 };
 
-function playRound(computer, player) {
-  let computerChoice = computer();
-  let playerSelection = player();
+function playRound(computerChoice, playerSelection) {
 
   /* In case the player inputs a wrong answer lose that round*/
   if (playerSelection === 0) {
@@ -53,18 +51,23 @@ function playRound(computer, player) {
   }
 }
 
+function funCompose(playerSelect, compSelect, play) {
+  return (round) => play(compSelect(),playerSelect(round))
+}
+
+const funcReady = funCompose(playerSelection, getComputerChoice, playRound)
+
 function game() {
   let userPoints = 0;
   let roundResult;
-  let rounds = 5;
 
-  for (let i = 0; i < rounds; i++) {
-    roundResult = playRound(getComputerChoice, playerSelection);
+  for (let i = 5; 0 < i; --i) {
+    roundResult = funcReady(i);
     if (roundResult.slice(0, 7) === 'You Won') {
       console.log(roundResult)
       ++userPoints
     } else if (roundResult.slice(-3) === 'tie') {
-      ++rounds;
+      ++i;
       console.log(`You have another chance ${roundResult}`)
     } else {
       console.log(roundResult)
