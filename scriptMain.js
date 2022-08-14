@@ -51,18 +51,18 @@ function playRound(computerChoice, playerSelection) {
   }
 }
 
-function funCompose(playerSelect, compSelect, play) {
-  return (round) => play(compSelect(),playerSelect(round))
+function composeFuntion(playerSelect, compSelect, singleRound) {
+  return (roundNum) => singleRound(compSelect(),playerSelect(roundNum))
 }
 
-const funcReady = funCompose(playerSelection, getComputerChoice, playRound)
+const gameRound = composeFuntion(playerSelection, getComputerChoice, playRound)
 
 function game() {
   let userPoints = 0;
   let roundResult;
 
   for (let i = 5; 0 < i; --i) {
-    roundResult = funcReady(i);
+    roundResult = gameRound(i);
     if (roundResult.slice(0, 7) === 'You Won') {
       console.log(roundResult)
       ++userPoints
