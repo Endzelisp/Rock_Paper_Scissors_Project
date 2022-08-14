@@ -19,18 +19,12 @@ const answerValidator = (valueToCheck, validValuesArray) => {
 function playerSelection(round) {
   let playerSelection = prompt(`${round} turn left. Type your selection: rock, paper, scissors`).toLowerCase();
   while (!answerValidator(playerSelection, GAME_OPTIONS)) {
-    playerSelection = prompt(`Wrong typing your options are: rock, paper, scissors`).toLowerCase();
+    playerSelection = prompt(`Wrong typing, your options are: rock, paper, scissors`).toLowerCase();
 }
   return playerSelection
 };
 
 function playRound(computerChoice, playerSelection) {
-
-  /* In case the player inputs a wrong answer lose that round*/
-  if (playerSelection === 0) {
-    return 'What\'s that? you lose a round'
-  }
-
   if (computerChoice === 'rock' && playerSelection === 'paper') {
     return 'You Won! Paper beats Rock'
   } else if (computerChoice === 'paper' && playerSelection === 'rock') {
@@ -79,7 +73,7 @@ function game() {
 
   (userPoints >= 3) ?
                   console.log(`You're a WINNER.!! you won ${userPoints} of ${i} rounds`)
-                : console.log('This time the machine beats you :(');
+                : console.log('This time machine beats you :(');
   
 }
 
