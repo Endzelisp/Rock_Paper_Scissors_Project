@@ -11,6 +11,7 @@ This first practice is intended to put into practice and reinforce all knowledge
  * Conditional branching
   - if / else if / else statements
   - switch statements
+  - ternary Operator
   * Functions
     - function declaration
     - function expressions
@@ -20,3 +21,6 @@ This first practice is intended to put into practice and reinforce all knowledge
  * Developing solving problem skills
  * JavaScript error detection and debugging
  * DevTools debugging
+
+
+Additionally I used some more advanced JavaScript concepts as closures and function composition
