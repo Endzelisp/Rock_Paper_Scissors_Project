@@ -58,7 +58,7 @@ function game() {
   let userPoints = 0;
   let roundResult;
 
-  for (let i = 5; 0 < i; --i) {
+  for (let i = 1; 0 < i; --i) {
     roundResult = gameRound(i);
     if (roundResult.slice(0, 7) === 'You Won') {
       console.log(roundResult)
@@ -71,9 +71,9 @@ function game() {
     }
   }
 
-  (userPoints >= 3) ?
+/*   (userPoints >= 3) ?
                   console.log(`You're a WINNER.!! you won ${userPoints}`)
-                : console.log('This time machine beats you :(');
+                : console.log('This time machine beats you :('); */
   
 }
 
