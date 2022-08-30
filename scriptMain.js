@@ -11,20 +11,8 @@ function getComputerChoice() {
   };
 }
 
-const GAME_OPTIONS = 'rock paper scissors'
-
-const answerValidator = (valueToCheck, validValues) => {
-  return validValues.includes(valueToCheck)};
-
-function playerSelection(round) {
-  let playerSelection = prompt(`${round} turn left. Type your selection: rock, paper, scissors`).toLowerCase();
-  while (!answerValidator(playerSelection, GAME_OPTIONS)) {
-    playerSelection = prompt(`Wrong typing, your options are: rock, paper, scissors`).toLowerCase();
-}
-  return playerSelection
-};
-
-function playRound(computerChoice, playerSelection) {
+function playRound(playerSelection) {
+  let computerChoice = getComputerChoice()
   if (computerChoice === 'rock' && playerSelection === 'paper') {
     return 'You Won! Paper beats Rock'
   } else if (computerChoice === 'paper' && playerSelection === 'rock') {
@@ -42,39 +30,18 @@ function playRound(computerChoice, playerSelection) {
   } else if (computerChoice === 'scissors' && playerSelection === 'paper') {
     return 'You Lose! Scissors beats Paper'
   }
-
   else if (computerChoice === playerSelection) {
     return 'It\'s a tie'
   }
 }
 
-function composeFuntion(playerSelect, compSelect, singleRound) {
-  return (roundNum) => singleRound(compSelect(),playerSelect(roundNum))
-}
 
-const gameRound = composeFuntion(playerSelection, getComputerChoice, playRound)
 
-function game() {
-  let userPoints = 0;
-  let roundResult;
 
-  for (let i = 1; 0 < i; --i) {
-    roundResult = gameRound(i);
-    if (roundResult.slice(0, 7) === 'You Won') {
-      console.log(roundResult)
-      ++userPoints
-    } else if (roundResult.slice(-3) === 'tie') {
-      ++i;
-      console.log(`You have another chance ${roundResult}`)
-    } else {
-      console.log(roundResult)
-    }
-  }
 
-/*   (userPoints >= 3) ?
-                  console.log(`You're a WINNER.!! you won ${userPoints}`)
-                : console.log('This time machine beats you :('); */
-  
-}
-
-game()
+addEventListener('click', (e) => {
+  let elemTarget = e.target;
+  let playerChoice = elemTarget.id;
+  let round = playRound(playerChoice)
+  console.log(round)
+})
