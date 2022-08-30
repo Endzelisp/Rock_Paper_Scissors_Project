@@ -36,12 +36,17 @@ function playRound(playerSelection) {
 }
 
 
+const results = document.querySelector('.results')
 
+let availableTurns = 5;
 
 
 addEventListener('click', (e) => {
-  let elemTarget = e.target;
-  let playerChoice = elemTarget.id;
-  let round = playRound(playerChoice)
-  console.log(round)
+  if (availableTurns > 0) {
+    let elemTarget = e.target;
+    let playerChoice = elemTarget.id;
+    let round = playRound(playerChoice)
+    results.textContent = `${round} ${availableTurns} turns left`
+    --availableTurns
+  }
 })
