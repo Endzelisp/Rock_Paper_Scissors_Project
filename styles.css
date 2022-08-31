@@ -40,7 +40,6 @@
   cursor: pointer;
   font-size: 8rem;
   border-radius: 15px;
-  box-shadow: 2px 2px 15px 5px #000000;
   transition: all 500ms ease-in-out;
   animation-name: bright;
   animation-duration: 3s;
@@ -49,13 +48,15 @@
 
 .game-buttons span:hover {
   transform: scale(1.05);
-  box-shadow: 2px 2px 10px 5px #000000;
+  transform: translateY(-20px);
+  box-shadow: 2px 2px 15px 10px #ff9900;;
   cursor: pointer;
+  animation: none;
 }
 
 
 @keyframes bright {
-  0%   { box-shadow: 2px 2px 15px 5px #ff0000;}
-  50%  { box-shadow: 2px 2px 15px 5px #000000;}
-  100% { box-shadow: 2px 2px 15px 5px #ff0000;}
+  0%   { box-shadow: 2px 2px 15px 3px #ff9900;}
+  50%  { box-shadow: 2px 2px 15px 8px #ff9900;}
+  100% { box-shadow: 2px 2px 15px 3px #ff9900;}
 }
