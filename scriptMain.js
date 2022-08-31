@@ -67,3 +67,18 @@ addEventListener('click', (e) => {
       results.textContent = `Computer Won with ${computerPoints} points`
   }
 });
+
+
+function intro () {
+  setTimeout(() => {
+    const introTextEl = document.querySelector('.container p');
+    introTextEl.remove()
+  }, 3000)
+
+  setTimeout(() => {
+    document.querySelector('.results').classList.remove('intro-effect')
+    document.querySelector('.game-buttons').classList.remove('intro-effect')
+  }, 3800)
+}
+
+intro()
