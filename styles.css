@@ -21,7 +21,10 @@
 
 .container p {
   font-size: 5rem;
+  font-style: italic;
   text-shadow: 1px 1px 10px blue;
+  animation-name: moving-text;
+  animation-duration: 1s;
 }
 
 .results {
@@ -47,8 +50,7 @@
 }
 
 .game-buttons span:hover {
-  transform: scale(1.05);
-  transform: translateY(-20px);
+  transform: scale(1.1) translateY(-20px);
   box-shadow: 2px 2px 15px 10px #ff9900;;
   cursor: pointer;
   animation: none;
@@ -59,4 +61,9 @@
   0%   { box-shadow: 2px 2px 15px 3px #ff9900;}
   50%  { box-shadow: 2px 2px 15px 8px #ff9900;}
   100% { box-shadow: 2px 2px 15px 3px #ff9900;}
+}
+
+@keyframes moving-text {
+    0% {transform: translateX(-2000px);}
+    100% {transform: translateX(0);}
 }

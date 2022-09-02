@@ -16,7 +16,7 @@ let gameRules = [['paper', 'rock'], ['scissors', 'paper'], ['rock', 'scissors']]
 function playRound(playerSelection) {
   let playerWin = false;
   let computerChoice = getComputerChoice();
-  console.log(`player: ${playerSelection} | computer: ${computerChoice}`);
+/*   console.log(`player: ${playerSelection} | computer: ${computerChoice}`); */
 
   if (playerSelection === computerChoice) return {message : `It's a tie`, validRound : 0,};
 
@@ -48,10 +48,14 @@ let availableTurns = 5;
 let playerPoints = 0;
 let computerPoints = 0
 
+const validOptions = ['rock', 'paper', 'scissors']
+
 addEventListener('click', (e) => {
   if (availableTurns > 0) {
     let elemTarget = e.target;
     let playerChoice = elemTarget.id;
+    console.log(playerChoice)
+    if (!validOptions.includes(playerChoice)) return
     let roundResult = playRound(playerChoice)
     if (roundResult.winner === 'player') {
       ++playerPoints
