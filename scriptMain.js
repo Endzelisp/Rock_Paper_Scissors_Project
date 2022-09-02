@@ -11,22 +11,20 @@ function getComputerChoice() {
   };
 }
 
-let gameRules = [['paper', 'rock'], ['scissors', 'paper'], ['rock', 'scissors']];
+/* gameRules describe the 3 posible wining options */
+
+const gameRules = [['paper', 'rock'], ['scissors', 'paper'], ['rock', 'scissors']];
 
 function playRound(playerSelection) {
   let playerWin = false;
   let computerChoice = getComputerChoice();
-/*   console.log(`player: ${playerSelection} | computer: ${computerChoice}`); */
-
   if (playerSelection === computerChoice) return {message : `It's a tie`, validRound : 0,};
-
   for (let i = 0; i < 3; ++i) {
     if (playerSelection === gameRules[i][0] && computerChoice === gameRules[i][1]) {
       playerWin = true
       break
     }
   }
-
   if (playerWin) {
     return {
       message : `You won this round ${playerSelection} beats ${computerChoice}`,
@@ -54,7 +52,10 @@ addEventListener('click', (e) => {
   if (availableTurns > 0) {
     let elemTarget = e.target;
     let playerChoice = elemTarget.id;
-    console.log(playerChoice)
+
+    // validOptions avoid eventListener function to be completed
+    // if the user click outside option icons
+
     if (!validOptions.includes(playerChoice)) return
     let roundResult = playRound(playerChoice)
     if (roundResult.winner === 'player') {
